@@ -16,7 +16,9 @@ Including another URLconf
 from django.urls import include, path
 from django.contrib import admin
 from django.urls import path
-
+admin.site.site_header = "Kaleyra Admin"
+admin.site.site_title = "Kaleyra Admin Pannel"
+admin.site.index_title = "Welcome to Kaleyra Admin Pannel"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('url.urls'))

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %} || HOME {% endblock title %}
+{% block body %}
+    <div class="jumbotron jumbotron-fluid" style="background-color:#ccffff;">
+        <div class="container">
+        <h1 class="display-4">URL SHORTNER</h1>
+        <p class="lead">HEY JUST MAKE YOUR LONG URL SHORTER</p>
+    </div>
+  </div>
+  <div class="container">
+    <br><br>
+    <form action='/get' method="post">
+    {% csrf_token %}
+        <div class="form-group">
+          <label for="exampleInputEmail1">URL</label>
+          <input type="text" class="form-control" name='link' id="exampleInputEmail1" aria-describedby="emailHelp">
+          <small id="emailHelp" class="form-text text-muted">Enter your long URL</small>
+        </div>
+        <button type="submit" class="btn btn-primary">GET YOUR SHORT URL</button>
+    </form>
+    
+    <!-- short url coming back  -->
+  {% for post in posts %}
+      <a href = {{post}}>{{post}}</a>
+  {% endfor %}
+
+
+        
+    </div>
+{% endblock body %}
