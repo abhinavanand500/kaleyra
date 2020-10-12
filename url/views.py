@@ -2,9 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 import random
 import string
-import pyshorteners
 from .models import *
-from django.core.mail import EmailMessage
 from django.utils.encoding import *
 from django.utils.http import *
 from django.contrib.sites.shortcuts import *
@@ -66,15 +64,12 @@ def get(request):
                 # creating domain
                 domain = get_current_site(request).domain
                 short = 'http://'+domain+"/"+result_str
-                # print(reset_password_url)
 
 
 
-                # short = pyshorteners.Shortener()
-                x = [short]
-                newUrl=x[0]
-                contact = Shorturl(ori_url=link, short_url=x[0],uni_key=result_str)
-                contact.save()
+                # Commiting in database
+                myUrl = Shorturl(ori_url=link, short_url=x[0],uni_key=result_str)
+                myUrl.save()
                 context = {'posts' : x}
         else:
             url = ['Please Check the URL that you have provided']
