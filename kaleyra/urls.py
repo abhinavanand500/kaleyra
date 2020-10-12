@@ -21,5 +21,6 @@ admin.site.site_title = "Kaleyra Admin Pannel"
 admin.site.index_title = "Welcome to Kaleyra Admin Pannel"
 urlpatterns = [
     path('admin', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('', include('url.urls'))
 ]

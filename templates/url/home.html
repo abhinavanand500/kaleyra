@@ -4,7 +4,7 @@
     <div class="jumbotron jumbotron-fluid" style="background-color:#ccffff;">
         <div class="container">
         <h1 class="display-4">URL SHORTNER</h1>
-        <p class="lead">HEY JUST MAKE YOUR LONG URL SHORTER</p>
+        <p class="lead">HEY JUST MAKE YOUR LONG URL SHORTER.</p>
     </div>
   </div>
   <div class="container">
@@ -12,16 +12,34 @@
     <form action='/get' method="post">
     {% csrf_token %}
         <div class="form-group">
+          <label for="exampleInputEmail2">LABEL</label>
+          <input type="text" class="form-control" name='label' id="exampleInputEmail2" aria-describedby="emailHelp">
+          <small id="emailHelp" class="form-text text-muted">Give your URL a Label. So that others can identify it. (Give anything like if you are going to give a url related to Car then you can enter Car here. It can help others.)</small>
+        </div>
+        <div class="form-group">
           <label for="exampleInputEmail1">URL</label>
           <input type="text" class="form-control" name='link' id="exampleInputEmail1" aria-describedby="emailHelp">
           <small id="emailHelp" class="form-text text-muted">Enter your long URL</small>
         </div>
         <button type="submit" class="btn btn-primary">GET YOUR SHORT URL</button>
     </form>
-    
+    <br><br><hr><br>
     <!-- short url coming back  -->
   {% for post in posts %}
-      <a href = {{post}}>{{post}}</a>
+      <div class="jumbotron jumbotron-fluid" style="background-color: #ccffcc;">
+        <div class="container">
+          <h1 class="display-4">{{post.label}}</h1>
+          <p class="lead">Shorter URL for your Long URL is :: 
+          <a href="{{post.short_url}}">{{post.short_url}}</a></p>
+        </div>
+      </div>
+  {% endfor %}
+  {% for qq in q %}
+      <div class="jumbotron jumbotron-fluid" style="background-color: #ff8080">
+        <div class="container">
+          <h3 class="display-4">{{qq}}</h3>
+        </div>
+      </div>
   {% endfor %}
 
 

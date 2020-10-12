@@ -36,13 +36,13 @@ def get(request):
     # POST
     if request.method=='POST':
         link = request.POST['link']
+        label = request.POST['label']
         ans = re.match(regex, link) is not None
         if(ans==True):
             longurl = Shorturl.objects.filter(ori_url=link)
             if(longurl):
                 print("Already Exists")
-                url = ['Already Exists', longurl[0]]
-                context = {'posts' : url}
+                context = {'posts' : longurl}
             else:
 
                 # creating random string
@@ -73,10 +73,18 @@ def get(request):
             #    saving it to database 
                 x = [short]
                 newUrl=x[0]
-                contact = Shorturl(ori_url=link, short_url=newUrl,uni_key=result_str)
+                contact = Shorturl(ori_url=link, short_url=newUrl,uni_key=result_str,label=label)
                 contact.save()
-                context = {'posts' : x}
+                xx=Shorturl.objects.filter(short_url=short)
+                context = {'posts' : xx}
+                print(context)
         else:
-            url = ['Please Check the URL that you have provided']
-            context = {'posts' : url}
+            url = ['You have entered wrong email id. Please Check the URL that you have provided']
+            context = {'q' : url}
     return render(request,'./url/home.html', context)
+
+
+def showAll(request):
+    all_Object = Shorturl.objects.all()
+    context = {'all' : all_Object}
+    return render(request,'./url/allUrls.html', context)
