@@ -32,7 +32,7 @@ This project will create a specific unique URL for each long URL, so if anyone e
   
 ## MORE ABOUT PROJECT
 
-If you have any question related to functioning of our projects then you can refer our videos. After watching this you will be able to know our project and motive of this project end to end.
+If you have any question related to functioning of our projects then you can refer our videos. After watching this you will be able to know our project end to end.
 
 + [FULL VIDEO](https://www.youtube.com/watch?v=6VaF5Sr9ppg&t=55s)
 
@@ -49,3 +49,4 @@ Click on above link to watch videos
 
 
    **Thank You :)**
+   
