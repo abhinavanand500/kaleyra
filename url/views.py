@@ -16,9 +16,13 @@ def home(request):
     return render(request, './url/home.html')
 
 def aa(request,slug):
-    code = Shorturl.objects.filter(uni_key = slug)
-    finalop = code[0].ori_url
-    return redirect(finalop)
+    try:
+        code = Shorturl.objects.filter(uni_key = slug)
+        finalop = code[0].ori_url
+        return redirect(finalop)
+    except:
+        print("Error")
+        return redirect('home')
     # return render(request, './url/home.html')
 
 
