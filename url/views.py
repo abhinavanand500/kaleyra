@@ -21,7 +21,6 @@ def aa(request,slug):
         finalop = code[0].ori_url
         return redirect(finalop)
     except:
-        print("Error")
         return redirect('home')
     # return render(request, './url/home.html')
 
@@ -51,7 +50,7 @@ def get(request):
 
                 # creating random string
                 letters = string.ascii_letters
-                shorturl = Shorturl.objects.filter(short_url=link)
+                # shorturl = Shorturl.objects.filter(short_url=link)
                 result_str = ''.join(random.choice(letters) for i in range(random.randint(5,10)))
                 ans11=False
                 ans1 = Shorturl.objects.filter(uni_key=result_str)
@@ -83,7 +82,7 @@ def get(request):
                 context = {'posts' : xx}
                 print(context)
         else:
-            url = ['You have entered wrong email id. Please Check the URL that you have provided']
+            url = ['You have entered wrong URL. Please Check the URL that you have provided']
             context = {'q' : url}
     return render(request,'./url/home.html', context)
 
