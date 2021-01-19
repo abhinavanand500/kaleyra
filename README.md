@@ -10,7 +10,7 @@ This project will create a specific unique URL for each long URL, so if anyone e
 
 2. Open the project in an editor of your preference.
 
-3. Use the package manager [pip](https://pip.pypa.io/en/stable/) to install dependencies.
+3. Use the package [pip](https://pip.pypa.io/en/stable/) to install dependencies.
 
     ```bash
       pip install django
